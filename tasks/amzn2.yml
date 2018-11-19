@@ -1,0 +1,31 @@
+---
+- name: Install Zabbix-agent
+  yum:
+    name: "{{ zabbix_agent_packages }}"
+    state: present
+
+- file:
+    path: /var/lib/zabbix
+    state: directory
+    owner: zabbix
+    group: zabbix
+    mode: 0750
+
+- template:
+    src: my.cnf.j2
+    dest: /var/lib/zabbix/.my.cnf
+    owner: zabbix
+    group: zabbix
+    mode: 0640
+  notify: restart_zabbix_agent_systemd
+
+- template:
+    src: zabbix_agentd.conf.j2
+    dest: /etc/zabbix/zabbix_agentd.conf
+    mode: 0644
+  notify: restart_zabbix_agent_systemd
+
+- systemd:
+    name: zabbix-agent
+    state: started
+    enabled: yes

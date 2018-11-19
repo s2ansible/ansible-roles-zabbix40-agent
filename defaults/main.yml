@@ -1,0 +1,12 @@
+---
+zabbix_agent_packages: zabbix-agent,zabbix-sender,zabbix-get
+zabbix_agent_Server: 127.0.0.1/32
+zabbix_agent_ListenPort: 10050
+zabbix_agent_ServerActive: ''
+zabbix_agent_HostMetadata: ''
+zabbix_agent_AllowRoot: 0
+zabbix_agent_UserParameter: ''
+zabbix_agent_mysql_info:
+  user: root
+  password: password
+  host: 127.0.0.1

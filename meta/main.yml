@@ -1,0 +1,19 @@
+galaxy_info:
+  role_name: zabbix40_agent
+  author: youyo
+  description: Install zabbix-agent
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: Amazon
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - system
+    - monitoring
+    - zabbix
+
+dependencies:
+  - youyo.yumrepo_zabbix40
